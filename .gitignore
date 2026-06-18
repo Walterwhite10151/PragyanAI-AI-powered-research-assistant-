@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment files
+backend/.env
+.env
+
+# Data (user-specific, not committed)
+data/chroma_db/
+data/conversation_history/
+data/uploads/
+logs/
+
+# Frontend build artefacts
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# macOS
+.DS_Store
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
