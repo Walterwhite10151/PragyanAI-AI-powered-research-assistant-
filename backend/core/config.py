@@ -3,6 +3,14 @@ backend/core/config.py
 -----------------------
 Centralised, type-safe configuration via pydantic-settings.
 All values are read from environment variables or a .env file.
+
+CHANGE: env_file is now an absolute path anchored to this file's own
+location (backend/), instead of a bare ".env" string. A bare relative
+path is resolved against the current working directory at process
+start — which silently broke EXA_API_KEY/GROQ_API_KEY loading the
+moment uvicorn started being launched from the project root instead
+of from inside backend/. Anchoring it here means it works identically
+regardless of which directory you run uvicorn from.
 """
 
 from __future__ import annotations
@@ -11,10 +19,12 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pydantic import Field
 
+_BACKEND_DIR = Path(__file__).resolve().parent.parent  # backend/core/config.py -> backend/
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(
-        env_file=".env",
+        env_file=_BACKEND_DIR / ".env",
         env_file_encoding="utf-8",
         case_sensitive=False,
         extra="ignore",

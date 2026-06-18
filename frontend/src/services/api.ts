@@ -6,8 +6,8 @@ import type {
 } from '../types'
 
 const api = axios.create({
-  baseURL: '/api',
-  timeout: 2400_000, // 40 min — five sequential LLM calls add up once they're actually succeeding
+  baseURL: import.meta.env.VITE_API_URL || '/api',
+  timeout: 240_000, // 4 min — five sequential LLM calls add up once they're actually succeeding
 })
 
 // ── Research ───────────────────────────────────────────────────────────────────
