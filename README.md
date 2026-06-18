@@ -1,5 +1,5 @@
 ---
-title: AI Research Agent
+title: PragyanAI(AI powered research assistant)
 emoji: 🔬
 colorFrom: emerald
 colorTo: purple
@@ -10,7 +10,7 @@ license: mit
 short_description: FastAPI + React + Exa + Groq/Gemini + LangGraph + ChromaDB
 ---
 
-# 🔬 AI Research Agent
+# 🔬 PragyanAI
 
 **Stack:** React · FastAPI · Exa Neural Search · Groq/Gemini · LangGraph · ChromaDB RAG
 
